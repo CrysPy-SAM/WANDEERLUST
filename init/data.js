@@ -5,7 +5,7 @@ const sampleListings = [
       "Escape to this charming beachfront cottage for a relaxing getaway. Enjoy stunning ocean views and easy access to the beach.",
     image: {
       filename: "listingimage",
-      url: "https://images.unsplash.com/photo-1552733407-5d5c46c3bb3b?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTB8fHRyYXZlbHxlbnwwfHwwfHx8MA%3D%3D&auto=format&fit=crop&w=800&q=60",
+      url: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRhMQurpxwnBMk5OD9gnc5iTtrUO7ocOi4mPg&s",
     },
     price: 1500,
     location: "Malibu",
@@ -161,7 +161,7 @@ const sampleListings = [
       "Step back in time in this elegant historic brownstone located in the heart of Boston.",
     image: {
       filename: "listingimage",
-      url: "https://images.unsplash.com/photo-1533619239233-6280475a633a?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTR8fHNreSUyMHZhY2F0aW9ufGVufDB8fDB8fHww&auto=format&fit=crop&w=800&q=60",
+      url: "https://imageio.forbes.com/specials-images/imageserve/61f0889bca62cabb35914da3/A-long-line-of-classic-Boston-brownstone-homes-equipped-with-large-windows-and/0x0.jpg?format=jpg&crop=1323,744,x0,y67,safe&width=960",
     },
     price: 2200,
     location: "Boston",
