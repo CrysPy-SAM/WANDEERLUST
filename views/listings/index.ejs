@@ -1,27 +1,20 @@
-<% layout("/layouts/boilerplate") %>
-    <h3>All Listings</h3>
-   <!--- <form method="GET" action="/listings/new">
-      <button>Create New Listing</button>
-    </form>-->
+<% layout("layouts/boilerplate") %>
+<h3>All Listings</h3>
 
-  <div class="row row-cols-lg-3 row-cols-md-2 row-cols-sm-1">
-    <% for(let listing of allListings) { %>
+<div class="row row-cols-lg-3 row-cols-md-2 row-cols-sm-1">
+  <% for(let listing of allListings) { %>
+    <div class="card col">
       <a href="/listings/<%= listing._id %>" class="listing-link">
-      <div class="card col">
-        <img src="<%= listing.image && listing.image.url ? listing.image.url : 'https://via.placeholder.com/300' %>" class="card-img-top" alt="listing_image" style="height: 20rem"/>
-
-        <div class="card-img-overlay"></div>
-        <div class="card-body">
-          <p class="card-text">
-            <b><%= listing.title %><br></b>
+        <img src="<%= listing.image ? listing.image : 'https://via.placeholder.com/300' %>" 
+             class="card-img-top" alt="listing_image" style="height: 20rem"
+             onerror="this.onerror=null; this.src='https://via.placeholder.com/300';"/>
+      </a>
+      <div class="card-body">
+        <p class="card-text">
+          <b><%= listing.title %><br></b>
           <%= listing.price.toLocaleString("en-IN") %> / night
         </p>
-        </div>
       </div>
-    </a>
-      <% } %>
-  </div>
-
-   
-
-
+    </div>
+  <% } %>
+</div>
