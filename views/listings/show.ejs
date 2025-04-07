@@ -28,7 +28,13 @@
             <form>
               <div>
                 <label for="rating">Rating</label>
+                <input type="range" min=" 1" max="5" id="rating" name="review[rating]">
               </div>
+              <div>
+                <label for="comment"Comments></label>
+                <textarea name="review[comment]" id="comment" cols="30" rows="10"></textarea>
+              </div>
+              <button>Submit</button>
             </form>
           </div>
         </div>
