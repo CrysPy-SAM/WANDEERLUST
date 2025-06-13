@@ -1,44 +1,51 @@
 <% layout("/layouts/boilerplate") %>
-<div class="container">
-  <div class="row mt-4 justify-content-center">
-    <div class="col-md-8">
-      <h4 class="mb-4 fw-bold"><%= listing.title %></h4>
+  <div class="container">
+    <div class="row mt-4 justify-content-center">
+      <div class="col-md-8">
+        <h4 class="mb-4 fw-bold">
+          <%= listing.title %>
+        </h4>
 
-      <div class="card border-0">
-        <!-- Listing Image -->
-        <img src="<%= listing.image %>" class="card-img-top img-fluid" alt="Listing Image"
-             style="height: 350px; object-fit: cover; border-radius: 15px;">
+        <div class="card border-0">
+          <!-- Listing Image -->
+          <img src="<%= listing.image %>" class="card-img-top img-fluid" alt="Listing Image"
+            style="height: 350px; object-fit: cover; border-radius: 15px;">
 
-        <div class="card-body">
-          <p class="text-muted"><%= listing.description %></p>
+          <div class="card-body">
+            <p class="text-muted">
+              <%= listing.description %>
+            </p>
 
-          <p class="fw-bold mb-1">&#8377; <%= listing.price.toLocaleString("en-IN") %></p>
-          <p class="mb-1"><%= listing.location %></p>
-          <p class="text-muted"><%= listing.country %></p>
+            <p class="fw-bold mb-1">&#8377; <%= listing.price.toLocaleString("en-IN") %>
+            </p>
+            <p class="mb-1">
+              <%= listing.location %>
+            </p>
+            <p class="text-muted">
+              <%= listing.country %>
+            </p>
 
-          <div class="mt-4 d-flex gap-3">
-            <a href="/listings/<%= listing._id %>/edit" class="btn btn-danger px-4">Edit</a>
-            <form method="POST" action="/listings/<%= listing._id %>?_method=DELETE">
-              <button class="btn btn-dark px-4">Delete</button>
-            </form>
+            <div class="mt-4 d-flex gap-3">
+              <a href="/listings/<%= listing._id %>/edit" class="btn btn-danger px-4">Edit</a>
+              <form method="POST" action="/listings/<%= listing._id %>?_method=DELETE">
+                <button class="btn btn-dark px-4">Delete</button>
+              </form>
+            </div>
+
+            <div class="col-md-8 mx-auto mb-3">
+              <hr>
+              <h4>Leave a Review</h4>
+              <form action="/listings/<%= listing.id%>/reviews" method="POST">
+                <div class="mb-3 mt-3">
+                  <label for="rating" class="form-lable">Rating</label>
+                  <input type="range" min=" 1" max="5" id="rating" name="review[rating]" class="form-range">
+                </div>
+                <div class="mb-3 mt-3">
+                  <label for="comment" class="form-label">Comments</label>
+                  <textarea name="review[comment]" id="comment" cols="30" rows="5" class="form-control"
+                    required></textarea>
+                </div>
+                <button class="btn btn-outline-dark">Submit</button>
+              </form>
+            </div>
           </div>
-
-          <div class="col-md-8 mx-auto mb-3">
-            <hr>
-            <h4>Leave a Review</h4>
-            <form action="/listings/<%= listing.id%>/review" method="POST">
-              <div class="mb-3 mt-3">
-                <label for="rating" class="form-lable">Rating</label>
-                <input type="range" min=" 1" max="5" id="rating" name="review[rating]" class="form-range">
-              </div>
-              <div class="mb-3 mt-3">
-                <label for="comment" class="form-label">Comments</label>
-                <textarea name="review[comment]" id="comment" cols="30" rows="5"
-                class="form-control"
-                required
-                ></textarea>
-              </div>
-              <button class="btn btn-outline-dark">Submit</button>
-            </form>
-          </div>
-        </div> 
