@@ -6,7 +6,7 @@
           <%= listing.title %>
         </h4>
 
-        <div class="card border-0">
+        <div class="card border-0 listing-card ">
           <!-- Listing Image -->
           <img src="<%= listing.image %>" class="card-img-top img-fluid" alt="Listing Image"
             style="height: 350px; object-fit: cover; border-radius: 15px;">
@@ -47,5 +47,29 @@
                 </div>
                 <button class="btn btn-outline-dark">Submit</button>
               </form>
+           
+
+          <hr/>
+
+          <section class="my-4">
+  <h4 class="mb-3"><i class="bi bi-chat-square-text"></i> All Reviews</h4>
+  <div class="row g-4">
+    <% for (let review of listing.reviews) { %>
+      <div class="col-md-6 col-lg-4">
+        <div class="card border-0 shadow-sm h-100 rounded-4">
+          <div class="card-body">
+            <div class="d-flex justify-content-between align-items-center mb-2">
+              <h6 class="mb-0 fw-bold text-primary"><i class="bi bi-person-circle"></i> Jane Doe</h6>
+              <span class="badge bg-warning text-dark">
+                <i class="bi bi-star-fill"></i> <%= review.rating %>/5
+              </span>
             </div>
+            <p class="text-muted mb-0">
+              <%= review.comment %>
+            </p>
           </div>
+        </div>
+      </div>
+    <% } %>
+  </div>
+</section>
