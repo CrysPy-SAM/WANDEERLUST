@@ -1,21 +1,24 @@
 const express = require("express");
+const cookieParser = require("cookie-parser");
 const app = express();
 
-// Middleware
-app.use(express.json());
+const users = require("./routes/user.js");
+const posts = require("./routes/post.js");
 
-// Import routes
-const userRoutes = require("./routes/user");
+app.use(cookieParser());
 
-// Root route
+app.get("/getcookies", (req, res) => {
+  res.cookie("greet", "hello");
+  res.send("Hi I am Satyam!");
+});
+
 app.get("/", (req, res) => {
   res.send("Hi, I am root!");
 });
 
-// Use route modules
-app.use("/users", userRoutes);
+app.use("/users", users);
+app.use("/posts", posts);
 
-// Start server
 const PORT = 3000;
 app.listen(PORT, () => {
   console.log(`Server is running on http://localhost:${PORT}`);
