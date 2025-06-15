@@ -1,10 +1,21 @@
 const express = require("express");
-const cookieParser = require("cookie-parser");
+//const cookieParser = require("cookie-parser");
 const app = express();
-
+const session = require("express-session");
 const users = require("./routes/user.js");
 const posts = require("./routes/post.js");
 
+app.use(session ({secret: "mysupersecretstring"}));
+app.get("/reqcount", (req, res)=>{
+  res.send (`You send a request X times`);
+});
+
+app.get("/test", (req,res)=>{
+  res.send("test successful!");
+});
+
+
+/*
 app.use(cookieParser("secretcode"));
 
 app.get("/getsignedcookie", (req,res)=>{
@@ -35,6 +46,8 @@ app.get("/", (req, res) => {
 
 app.use("/users", users);
 app.use("/posts", posts);
+*/
+
 
 const PORT = 3000;
 app.listen(PORT, () => {
