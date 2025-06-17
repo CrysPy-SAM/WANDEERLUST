@@ -4,17 +4,34 @@ const app = express();
 const session = require("express-session");
 const users = require("./routes/user.js");
 const posts = require("./routes/post.js");
+const { name } = require("ejs");
 
-app.use(session ({secret: "mysupersecretstring",
+const sessionOptions =({
+  secret: "mysupersecretstring",
   resave: false,
   saveUninitialized: true,
-}));
+})
+
+app.use(session(sessionOptions));
+
+app.get("/register", (req, res) => {
+  let { name= "anonymous" } = req.query;
+  req.session.name= name;
+  res.redirect("/hello"); 
+});
+
+app.get("/hello", (req,res)=>{
+  res.send(`Hello!, ${req.session.name }`)
+})
+
+
+/*
 app.get("/reqcount", (req, res)=>{
   req.session.count = 1;
   res.send (`You send a request ${req.session.count} times`);
 });
 
-/*
+
 app.get("/test", (req,res)=>{
   res.send("test successful!");
 });
