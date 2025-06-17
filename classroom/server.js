@@ -10,15 +10,17 @@ app.use(session ({secret: "mysupersecretstring",
   saveUninitialized: true,
 }));
 app.get("/reqcount", (req, res)=>{
-  res.send (`You send a request X times`);
+  req.session.count = 1;
+  res.send (`You send a request ${req.session.count} times`);
 });
 
+/*
 app.get("/test", (req,res)=>{
   res.send("test successful!");
 });
 
 
-/*
+
 app.use(cookieParser("secretcode"));
 
 app.get("/getsignedcookie", (req,res)=>{
