@@ -5,7 +5,10 @@ const session = require("express-session");
 const users = require("./routes/user.js");
 const posts = require("./routes/post.js");
 
-app.use(session ({secret: "mysupersecretstring"}));
+app.use(session ({secret: "mysupersecretstring",
+  resave: false,
+  saveUninitialized: true,
+}));
 app.get("/reqcount", (req, res)=>{
   res.send (`You send a request X times`);
 });
