@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Welcome</title>
+    <style>
+        .flash {
+            padding: 10px;
+            border-radius: 5px;
+            margin: 10px 0;
+            font-weight: bold;
+        }
+        .success { background-color: #d4edda; color: #155724; }
+        .error { background-color: #f8d7da; color: #721c24; }
+    </style>
+</head>
+<body>
+
+    <% if (successMsg.length > 0) { %>
+        <div class="flash success"><%= successMsg %></div>
+    <% } %>
+
+    <% if (errorMsg.length > 0) { %>
+        <div class="flash error"><%= errorMsg %></div>
+    <% } %>
+
+    <h1>Hello, <%= name %></h1>
+    
+</body>
+</html>
