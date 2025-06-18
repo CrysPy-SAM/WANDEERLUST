@@ -1,0 +1,55 @@
+<% layout("/layouts/boilerplate") %>
+
+<div class="container d-flex justify-content-center align-items-center" style="min-height: 90vh;">
+  <div class="col-md-8 col-lg-6">
+    <div class="card shadow-lg border-0 rounded-5" style="background: #ffffff; border: 1px solid #e4e4e4;">
+      <div class="card-body p-5">
+        <h2 class="text-center mb-4" style="color: #2f3640; font-weight: 700;">Welcome Back</h2>
+        <p class="text-center text-muted mb-4">Login to your Wanderlust account</p>
+
+        <form action="/login" method="POST" class="needs-validation" novalidate>
+
+          <!-- Username -->
+          <div class="form-floating mb-4">
+            <input
+              type="text"
+              class="form-control"
+              id="username"
+              name="username"
+              placeholder="Enter your username"
+              required
+            />
+            <label for="username">Username</label>
+          </div>
+
+          <!-- Password -->
+          <div class="form-floating mb-4">
+            <input
+              type="password"
+              class="form-control"
+              id="password"
+              name="password"
+              placeholder="Enter your password"
+              required
+            />
+            <label for="password">Password</label>
+          </div>
+
+          <!-- Submit Button -->
+          <div class="d-grid mb-3">
+            <button class="btn btn-primary btn-lg rounded-pill" type="submit" style="background-color: #74b9ff; border: none;">
+              Log In
+            </button>
+          </div>
+
+          <!-- Redirect to Sign Up -->
+          <p class="text-center" style="color: #636e72;">
+            Don't have an account?
+            <a href="/signup" class="text-decoration-none" style="color: #0984e3; font-weight: 500;">Sign up here</a>
+          </p>
+
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
