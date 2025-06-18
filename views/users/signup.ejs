@@ -1,42 +1,66 @@
 <% layout("/layouts/boilerplate") %>
 
-<div class="row mt-3">
-    <h1 class="col-6 offset-3">SignUp on Wanderlust</h1>
-  <div class="col-6 offset-3">
-    <form action="/signup" method="POST" class="needs-validation" novalidate>
-      <div class="mb-3">
-        <label for="username" class="form-label">Username</label>
-        <input
-          name="username"
-          id="username"
-          type="text"
-          class="form-control"
-          required
-        />
-        <div class="valid-feedback">Looks good!</div>
+<div class="container d-flex justify-content-center align-items-center" style="min-height: 90vh;">
+  <div class="col-md-8 col-lg-6">
+    <div class="card shadow-lg border-0 rounded-5" style="background: #ffffff; border: 1px solid #e4e4e4;">
+      <div class="card-body p-5">
+        <h2 class="text-center mb-4" style="color: #2f3640; font-weight: 700;">Create Your Wanderlust Account</h2>
+
+        <form action="/signup" method="POST" class="needs-validation" novalidate>
+
+          <!-- Username -->
+          <div class="form-floating mb-4">
+            <input
+              type="text"
+              class="form-control"
+              id="username"
+              name="username"
+              placeholder="Enter username"
+              required
+            />
+            <label for="username">Username</label>
+          </div>
+
+          <!-- Email -->
+          <div class="form-floating mb-4">
+            <input
+              type="email"
+              class="form-control"
+              id="email"
+              name="email"
+              placeholder="name@example.com"
+              required
+            />
+            <label for="email">Email address</label>
+          </div>
+
+          <!-- Password -->
+          <div class="form-floating mb-4">
+            <input
+              type="password"
+              class="form-control"
+              id="password"
+              name="password"
+              placeholder="Password"
+              required
+            />
+            <label for="password">Password</label>
+          </div>
+
+          <!-- Submit -->
+          <div class="d-grid mb-3">
+            <button class="btn btn-primary btn-lg rounded-pill" type="submit" style="background-color: #74b9ff; border: none;">
+              Sign Up
+            </button>
+          </div>
+
+          <!-- Login redirect -->
+          <p class="text-center" style="color: #636e72;">
+            Already have an account?
+            <a href="/login" class="text-decoration-none" style="color: #0984e3; font-weight: 500;">Login here</a>
+          </p>
+        </form>
       </div>
-       <div class="mb-3">
-        <label for="email" class="form-label">E-mail</label>
-        <input
-          name="email"
-          id="email"
-          type="email"
-          class="form-control"
-          required
-        />
-      </div>
-       <div class="mb-3">
-        <label for="password" class="form-label">Password</label>
-        <input
-          name="password"
-          id="password"
-          type="password"
-          class="form-control"
-          required
-        />
-        <div class="valid-feedback">Looks good!</div>
-      </div>
-      <button class="btn btn-success">SignUp</button>
-    </form>
+    </div>
   </div>
-</div>  make it more attractive and professional way
+</div>
