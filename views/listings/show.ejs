@@ -29,16 +29,19 @@
             </p>
 
 
-         
-              <div class="mt-4 d-flex gap-3">
+            <% if(currUser && listing.owner._id.equals(currUser._id)) {%>
+              
+            <div class="mt-4 d-flex gap-3">
                 <a href="/listings/<%= listing._id %>/edit" class="btn btn-danger px-4">Edit</a>
                 <form method="POST" action="/listings/<%= listing._id %>?_method=DELETE">
                   <button class="btn btn-dark px-4">Delete</button>
                 </form>
               </div>
+              <% } %> 
 
                 <div class="col-md-8 mx-auto mb-3">
-                  <hr>
+                  <hr/>
+                  <% if(currUser) {%>
                   <h4>Leave a Review</h4>
                   <form action="/listings/<%= listing._id %>/reviews" method="POST">
                     <div class="mb-3 mt-3">
@@ -52,9 +55,10 @@
                     </div>
                     <button class="btn btn-outline-dark">Submit</button>
                   </form>
+                   <hr />
+                  <% } %>
 
-
-                  <hr />
+                 
 
                   <section class="my-4">
                     <h4 class="mb-3"><i class="bi bi-chat-square-text"></i> All Reviews</h4>
