@@ -12,16 +12,13 @@
             style="height: 350px; object-fit: cover; border-radius: 15px;">
 
           <div class="card-body">
-            <p class="text-muted">
-              <%= listing.description %>
-            </p>
-
-            <p class="fw-bold mb-1">&#8377; <%= listing.price.toLocaleString("en-IN") %>
-            </p>
-            <p class="mb-1">
+         <p class="card-text">Owned by<i><%= listing.owner.username %></i> </p>
+            <p class="card-text"><%= listing.description %></p>
+            <p class="card-text"><%= listing.price.toLocaleString("en-IN") %></p>
+            <p class="card-text">
               <%= listing.location %>
             </p>
-            <p class="text-muted">
+            <p class="card-text">
               <%= listing.country %>
             </p>
 
