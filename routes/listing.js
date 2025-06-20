@@ -17,7 +17,7 @@ router.get("/new", isLoggedIn, (req, res) => {
 //Show Route
 router.get("/:id", wrapAsync(async (req, res) => {
   let { id } = req.params;
-  const listing = await Listing.findById(id).populate("reviews").populate("owner");
+  const listing = await Listing.findById(id).populate({ path: "reviews",populate: {path: "author"}}).populate("owner");
   if (!listing) {
     req.flash("success", "Listing you requested for does not exist !"); res.redirect("/listings");
   }
@@ -36,7 +36,7 @@ router.post("/", isLoggedIn, validateListing, wrapAsync(async (req, res, next) =
 
 
 //Edit Route
-router.get("/:id/edit", isLoggedIn,isOwner, wrapAsync(async (req, res) => {
+router.get("/:id/edit", isLoggedIn, isOwner, wrapAsync(async (req, res) => {
   let { id } = req.params;
   const listing = await Listing.findById(id);
   if (!listing) {
@@ -47,8 +47,8 @@ router.get("/:id/edit", isLoggedIn,isOwner, wrapAsync(async (req, res) => {
 
 
 //Update Route
-router.put("/:id", isLoggedIn,isOwner, validateListing, wrapAsync(async (req, res) => {
-let { id } = req.params;
+router.put("/:id", isLoggedIn, isOwner, validateListing, wrapAsync(async (req, res) => {
+  let { id } = req.params;
   await Listing.findByIdAndUpdate(id, { ...req.body.listing });
   req.flash("success", "Listing Updated!");
   res.redirect(`/listings/${id}`);
@@ -57,7 +57,7 @@ let { id } = req.params;
 
 
 //Delete Route
-router.delete("/:id", isLoggedIn,isOwner, wrapAsync(async (req, res) => {
+router.delete("/:id", isLoggedIn, isOwner, wrapAsync(async (req, res) => {
   let { id } = req.params;
   let deletedListing = await Listing.findByIdAndDelete(id);
   console.log(deletedListing);
