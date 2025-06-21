@@ -6,7 +6,7 @@
   <% for(let listing of allListings) { %>
     <div class="card col listing-card">
       <a href="/listings/<%= listing._id %>" class="listing-link">
-        <img src="<%= listing.image ? listing.image : 'https://via.placeholder.com/300' %>" 
+        <img src="<%= listing.image.url ? listing.image.url : 'https://via.placeholder.com/300' %>" 
              class="card-img-top" alt="listing_image" style="height: 20rem"
              onerror="this.onerror=null; this.src='https:via.placeholder.com/300';"/>
       </a>
