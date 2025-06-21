@@ -29,7 +29,6 @@ router.get("/:id/edit", isLoggedIn, isOwner, wrapAsync(listingController.renderE
 router.put("/:id", isLoggedIn, isOwner, validateListing, wrapAsync(listingController.updateListing));
 
 
-
 //Delete Route
 router.delete("/:id", isLoggedIn, isOwner, wrapAsync(listingController.deleteListing));
 
